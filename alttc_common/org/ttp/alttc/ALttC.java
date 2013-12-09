@@ -5,11 +5,13 @@ import java.io.File;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.common.MinecraftForge;
 
 import org.ttp.alttc.common.ModBlocks;
 import org.ttp.alttc.common.ModItems;
 import org.ttp.alttc.common.core.TTPLogger;
 import org.ttp.alttc.common.core.handlers.ConfigHandler;
+import org.ttp.alttc.common.handlers.PickupHandler;
 import org.ttp.alttc.common.lib.Reference;
 import org.ttp.alttc.common.packets.PacketHandler;
 
@@ -47,6 +49,8 @@ public class ALttC {
         ModBlocks.init();
         ModItems.init();
         proxy.runClientSide();
+        
+        MinecraftForge.EVENT_BUS.register(new PickupHandler());
     }
     
     @EventHandler
