@@ -23,7 +23,7 @@ public class ItemHeart extends ItemTTP {
 			((EntityPlayer) entity).inventory
 					.consumeInventoryItem(ItemIds.ITEM_HEART + 256);
 			
-			((EntityPlayer) entity).heal(1.0F);
+			((EntityPlayer) entity).heal(2.0F);
 		}
 	}
 	
