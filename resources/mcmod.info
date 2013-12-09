@@ -1,0 +1,15 @@
+[
+{
+  "modid": "ALttC",
+  "name": "A Link to the Craft",
+  "description": "TBA",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "logoFile": "",
+  "url": "https://github.com/The-TTP-Project/ALttC",
+  "authors": [ "Jezzadabomb338", "ntzrmtthihu777" , "DemoXin", "tterrag" ],
+  "dependencies": [
+     "MinecraftForge"
+  ]
+}
+]
