@@ -1,13 +1,9 @@
 package org.ttp.alttc.client;
 
-import net.minecraftforge.client.MinecraftForgeClient;
-
-import org.ttp.alttc.client.renderer.ItemMasterSwordRenderer;
-import org.ttp.alttc.common.ModItems;
-import org.ttp.alttc.common.lib.Reference;
 import org.ttp.alttc.CommonProxy;
 import org.ttp.alttc.client.renderer.RenderKeese;
 import org.ttp.alttc.common.entity.EntityKeese;
+import org.ttp.alttc.common.lib.Reference;
 
 import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.relauncher.Side;

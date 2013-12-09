@@ -1,6 +1,5 @@
 package org.ttp.alttc.common;
 
-import org.ttp.alttc.ALttC;
 import org.ttp.alttc.common.entity.EntityKeese;
 
 import cpw.mods.fml.common.registry.EntityRegistry;

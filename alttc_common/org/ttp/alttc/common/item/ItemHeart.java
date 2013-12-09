@@ -1,14 +1,12 @@
 package org.ttp.alttc.common.item;
 
-import org.ttp.alttc.common.entity.EntityHeart;
-import org.ttp.alttc.common.lib.ItemIds;
-
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
 import net.minecraft.world.World;
+
+import org.ttp.alttc.common.entity.EntityHeart;
 
 public class ItemHeart extends ItemTTP {
 

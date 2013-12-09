@@ -2,10 +2,11 @@ package org.ttp.alttc.common.item;
 
 import net.minecraft.item.EnumToolMaterial;
 
+@SuppressWarnings("unused")
 public class ItemMasterSword extends ItemTTP {
 	
 	private float weaponDamage;
-    private final EnumToolMaterial toolMaterial;
+	private final EnumToolMaterial toolMaterial;
     
     public ItemMasterSword(int id, String name) {
 		super(id, name);

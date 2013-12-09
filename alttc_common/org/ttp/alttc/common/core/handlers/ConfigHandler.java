@@ -14,7 +14,6 @@ import cpw.mods.fml.common.FMLLog;
 
 public class ConfigHandler {
     private static Configuration config;
-    private static String var = "Misc";
     
     public static void init(String file) {
         config = new Configuration(new File(file + Reference.MOD_ID + ".cfg"));

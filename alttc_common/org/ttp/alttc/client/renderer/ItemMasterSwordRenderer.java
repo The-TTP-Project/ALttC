@@ -1,14 +1,12 @@
 package org.ttp.alttc.client.renderer;
 
-import org.lwjgl.opengl.GL11;
-import org.ttp.alttc.client.models.ModelMasterSword;
-import org.ttp.alttc.client.utils.RenderUtils;
-import org.ttp.alttc.common.lib.TextureMaps;
-
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.texture.TextureManager;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.client.IItemRenderer;
+
+import org.lwjgl.opengl.GL11;
+import org.ttp.alttc.client.model.ModelMasterSword;
+import org.ttp.alttc.client.utils.RenderUtils;
+import org.ttp.alttc.common.lib.TextureMaps;
 
 public class ItemMasterSwordRenderer implements IItemRenderer {
 
@@ -58,7 +56,7 @@ public class ItemMasterSwordRenderer implements IItemRenderer {
     
     private void renderMasterSword(float x, float y, float z, float scale, boolean fp, boolean inv, boolean eq) {
 
-        TextureManager texture = Minecraft.getMinecraft().renderEngine;
+        //TextureManager texture = Minecraft.getMinecraft().renderEngine;
 
         GL11.glPushMatrix();
         GL11.glDisable(GL11.GL_LIGHTING);

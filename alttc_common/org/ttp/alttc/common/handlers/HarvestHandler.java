@@ -9,7 +9,6 @@ import net.minecraftforge.event.world.BlockEvent.HarvestDropsEvent;
 
 import org.ttp.alttc.common.ModItems;
 import org.ttp.alttc.common.entity.EntityHeart;
-import org.ttp.alttc.common.lib.ItemIds;
 
 public class HarvestHandler {
 	

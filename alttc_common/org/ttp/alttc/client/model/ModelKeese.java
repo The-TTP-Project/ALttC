@@ -79,11 +79,12 @@ public class ModelKeese extends ModelBase
 	 public void render(Entity par1Entity, float par2, float par3, float par4, float par5, float par6, float par7)
 	 {
 		 EntityKeese EntityKeese = (EntityKeese)par1Entity;
-		 float f6;
+		 //float f6;
+		 //What's f6?
 
 		 if (EntityKeese.getIsBatHanging())
 		 {
-			 f6 = (180F / (float)Math.PI);
+			 //f6 = (180F / (float)Math.PI);
 			 this.batHead.rotateAngleX = par6 / (180F / (float)Math.PI);
 			 this.batHead.rotateAngleY = (float)Math.PI - par5 / (180F / (float)Math.PI);
 			 this.batHead.rotateAngleZ = (float)Math.PI;
@@ -100,7 +101,7 @@ public class ModelKeese extends ModelBase
 		 }
 		 else
 		 {
-			 f6 = (180F / (float)Math.PI);
+			 //f6 = (180F / (float)Math.PI);
 			 this.batHead.rotateAngleX = par6 / (180F / (float)Math.PI);
 			 this.batHead.rotateAngleY = par5 / (180F / (float)Math.PI);
 			 this.batHead.rotateAngleZ = 0.0F;
