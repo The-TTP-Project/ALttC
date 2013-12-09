@@ -1,11 +1,9 @@
 package org.ttp.alttc.common.item;
 
-public class ItemHeart extends ModItemBase {
+public class ItemHeart extends ItemTTP {
 
-	public ItemHeart(int par1) {
-		super(par1);
+	public ItemHeart(int id, String name) {
+		super(id, name);
 	}
 	
-	
-
 }

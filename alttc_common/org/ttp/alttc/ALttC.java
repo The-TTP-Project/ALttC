@@ -1,10 +1,15 @@
 package org.ttp.alttc;
 
+import java.io.File;
+
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
-import org.ttp.alttc.common.CommonProxy;
+import org.ttp.alttc.common.ModBlocks;
+import org.ttp.alttc.common.ModItems;
+import org.ttp.alttc.common.core.TTPLogger;
+import org.ttp.alttc.common.core.handlers.ConfigHandler;
 import org.ttp.alttc.common.lib.Reference;
 import org.ttp.alttc.common.packets.PacketHandler;
 
@@ -31,13 +36,17 @@ public class ALttC {
     
     public static CreativeTabs creativeTab = new CreativeTabs(Reference.MOD_ID) {
         public ItemStack getIconItemStack() {
-            return new ItemStack(Item.appleGold, 1, 0);
+            return new ItemStack(ModItems.itemHeart, 1, 0);
         }
     };
     
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
-        
+        TTPLogger.init();
+        ConfigHandler.init(event.getModConfigurationDirectory().getAbsolutePath() + File.separator + Reference.CHANNEL_NAME.toLowerCase() + File.separator);
+        ModBlocks.init();
+        ModItems.init();
+        proxy.runClientSide();
     }
     
     @EventHandler
