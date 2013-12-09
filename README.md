@@ -1,4 +1,4 @@
 ALttC
 =====
 
-Someone will change this.. Probably...
+Just TRY to guess what the acronym means. Go on, try.
