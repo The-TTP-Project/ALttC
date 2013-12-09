@@ -1,11 +1,11 @@
 package org.ttp.alttc.common;
 
-import org.ttp.alttc.common.items.ItemHeart;
-import org.ttp.alttc.common.items.ItemMasterSword;
+import net.minecraft.item.Item;
+
+import org.ttp.alttc.common.item.ItemHeart;
+import org.ttp.alttc.common.item.ItemMasterSword;
 import org.ttp.alttc.common.lib.ItemIds;
 import org.ttp.alttc.common.lib.Strings;
-
-import net.minecraft.item.Item;
 
 public class ModItems {
     public static Item itemHeart;

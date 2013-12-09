@@ -44,4 +44,3 @@ public class ItemHeart extends ItemTTP {
 		return true;
 	}
 }
->>>>>>> master:alttc_common/org/ttp/alttc/common/item/ItemHeart.java
