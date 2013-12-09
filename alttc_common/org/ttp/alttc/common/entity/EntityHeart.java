@@ -27,15 +27,8 @@ public class EntityHeart extends EntityItem {
 	public void onCollideWithPlayer(EntityPlayer player) {
 		
 		if (this.delayBeforeCanPickup > 0)
-			return;
-		
-		for (ItemStack stack : player.inventory.mainInventory)
-		{
-			if (stack == null)
-				break;
-			
+		{		
 			player.heal(2.0F);
-			
 			this.setDead();
 			return;
 		}
