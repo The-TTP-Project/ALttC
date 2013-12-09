@@ -12,4 +12,7 @@ public class Reference {
     public static final String SERVER_PROXY_CLASS = "org.ttp.alttc.common.CommonProxy";
     public static final String CLIENT_PROXY_CLASS = "org.ttp.alttc.client.ClientProxy";
     
+    //Model constants
+    public static boolean USE_MASTER_SWORD_MODEL = true;
+    
 }

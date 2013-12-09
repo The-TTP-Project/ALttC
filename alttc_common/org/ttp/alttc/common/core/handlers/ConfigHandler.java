@@ -27,6 +27,10 @@ public class ConfigHandler {
             
             //Items
             ItemIds.ITEM_HEART = config.getItem(Strings.ITEM_HEART, ItemIds.ITEM_HEART_DEFAULT).getInt();
+            ItemIds.ITEM_MASTERSWORD = config.getItem(Strings.ITEM_MASTERSWORD, ItemIds.ITEM_MASTERSWORD_DEFAULT).getInt();
+            
+            //Reference values
+            Reference.USE_MASTER_SWORD_MODEL = config.get("Reference Values", "Use MasterSword model", Reference.USE_MASTER_SWORD_MODEL).getBoolean(true);
             
         } catch (Exception e) {
             FMLLog.log(Level.SEVERE, e, Reference.MOD_NAME + " has had a problem loading its block configuration");
