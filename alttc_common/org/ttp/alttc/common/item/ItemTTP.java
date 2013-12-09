@@ -10,8 +10,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class ItemTTP extends Item{
-
+public class ItemTTP extends Item {
     public ItemTTP(int id, String name) {
         super(id);
         setUnlocalizedName(name);
@@ -29,5 +28,4 @@ public class ItemTTP extends Item{
     {
         this.itemIcon = par1IconRegister.registerIcon(Reference.MOD_ID + ":" + this.getUnlocalizedName().replace("item.", ""));
     }
-
 }

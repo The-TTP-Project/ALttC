@@ -1,17 +1,14 @@
 package org.ttp.alttc;
 
-import java.io.File;
-
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
-import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.common.Configuration;
 
 import org.ttp.alttc.common.ModBlocks;
 import org.ttp.alttc.common.ModEntities;
 import org.ttp.alttc.common.ModItems;
 import org.ttp.alttc.common.core.TTPLogger;
 import org.ttp.alttc.common.core.handlers.ConfigHandler;
-import org.ttp.alttc.common.handlers.PickupHandler;
 import org.ttp.alttc.common.lib.Reference;
 import org.ttp.alttc.common.packets.PacketHandler;
 
@@ -24,7 +21,6 @@ import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.event.FMLServerStartingEvent;
 import cpw.mods.fml.common.network.NetworkMod;
-
 
 @Mod(modid = Reference.MOD_ID, name = Reference.MOD_NAME, version = Reference.VERSION)
 @NetworkMod(channels = { Reference.CHANNEL_NAME }, clientSideRequired = true, serverSideRequired = false, packetHandler = PacketHandler.class)
@@ -45,13 +41,11 @@ public class ALttC {
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
 		TTPLogger.init();
-		ConfigHandler.init(event.getModConfigurationDirectory().getAbsolutePath() + File.separator + Reference.CHANNEL_NAME.toLowerCase() + File.separator);
+		ConfigHandler.init(new Configuration(event.getSuggestedConfigurationFile()));
 		ModBlocks.init();
 		ModItems.init();
 		ModEntities.init();
 		proxy.runClientSide();
-
-		MinecraftForge.EVENT_BUS.register(new PickupHandler());
 	}
 
 	@EventHandler

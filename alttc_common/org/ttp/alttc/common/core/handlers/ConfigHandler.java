@@ -1,40 +1,60 @@
 package org.ttp.alttc.common.core.handlers;
 
-import java.io.File;
 import java.util.logging.Level;
 
 import net.minecraftforge.common.Configuration;
 
-import org.ttp.alttc.common.lib.BlockIds;
-import org.ttp.alttc.common.lib.ItemIds;
 import org.ttp.alttc.common.lib.Reference;
-import org.ttp.alttc.common.lib.Strings;
 
 import cpw.mods.fml.common.FMLLog;
 
 public class ConfigHandler {
     private static Configuration config;
     
-    public static void init(String file) {
-        config = new Configuration(new File(file + Reference.MOD_ID + ".cfg"));
+    // Blocks
+    private static int blockDefault = 2000;
+    
+    // Items
+    private static int itemDefault = 4250;
+    public static int itemHeart;
+    public static int itemMasterSword;
+    public static int itemTunicGoron;
+    public static int itemTunicZora;
+    
+    // Special
+    public static boolean renderMasterSword;
+    
+    public static void init(Configuration fConfig)
+    {
+        config = fConfig;
 
         try {
             config.load();
             
             //Blocks
-            BlockIds.BLOCK_TEST = config.getBlock(Strings.BLOCK_TEST, BlockIds.BLOCK_TEST_DEFAULT).getInt();
+            //BlockIds.BLOCK_TEST = config.getBlock(Strings.BLOCK_TEST, BlockIds.BLOCK_TEST_DEFAULT).getInt();
             
             //Items
-            ItemIds.ITEM_HEART = config.getItem(Strings.ITEM_HEART, ItemIds.ITEM_HEART_DEFAULT).getInt();
-            ItemIds.ITEM_MASTERSWORD = config.getItem(Strings.ITEM_MASTERSWORD, ItemIds.ITEM_MASTERSWORD_DEFAULT).getInt();
+            itemHeart = config.getItem("Items", "Heart", getItemID()).getInt();
+            itemMasterSword = config.getItem("Gear", "MasterSword", getItemID()).getInt();
             
             //Reference values
-            Reference.USE_MASTER_SWORD_MODEL = config.get("Reference Values", "Use MasterSword model", Reference.USE_MASTER_SWORD_MODEL).getBoolean(true);
+            renderMasterSword = config.get("Sword", "UseMasterSwordModel", false).getBoolean(false);
             
         } catch (Exception e) {
             FMLLog.log(Level.SEVERE, e, Reference.MOD_NAME + " has had a problem loading its block configuration");
         } finally {
             config.save();
         }
+    }
+    
+    public static int getBlockID()
+    {
+    	return blockDefault++;
+    }
+    
+    public static int getItemID()
+    {
+    	return itemDefault++;
     }
 }

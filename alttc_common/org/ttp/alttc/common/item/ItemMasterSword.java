@@ -12,7 +12,6 @@ public class ItemMasterSword extends ItemTTP {
 		super(id, name);
 		toolMaterial = EnumToolMaterial.EMERALD;
 		weaponDamage = 8.0f;
+		this.setMaxDamage(0);
 	}
-
-
 }
