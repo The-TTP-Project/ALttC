@@ -1,4 +1,4 @@
-package org.ttp.alttc.common.items;
+package org.ttp.alttc.common.item;
 
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.item.Item;

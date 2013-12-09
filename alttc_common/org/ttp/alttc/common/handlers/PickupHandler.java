@@ -12,7 +12,7 @@ public class PickupHandler {
 	public void HandleItemPickup(EntityItemPickupEvent event)
 	{
 		if (event.item.getEntityItem().getItem() instanceof ItemHeart)
-			event.entityPlayer.inventory.clearInventory(ItemIds.ITEM_HEART, 0);
+			event.entityPlayer.inventory.consumeInventoryItem(ItemIds.ITEM_HEART);
 	}
 
 }

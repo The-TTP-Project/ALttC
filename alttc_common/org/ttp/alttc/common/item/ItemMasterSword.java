@@ -1,4 +1,4 @@
-package org.ttp.alttc.common.items;
+package org.ttp.alttc.common.item;
 
 public class ItemMasterSword extends ItemTTP{
 
