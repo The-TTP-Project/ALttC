@@ -36,6 +36,7 @@ public class EntityHeart extends EntityItem {
 			if (itemstack.stackSize > 1) 
 				itemstack.stackSize--; 
 			else this.setDead();
+			delayBeforeCanPickup = 5;
 			return;
 		}			
 	}
