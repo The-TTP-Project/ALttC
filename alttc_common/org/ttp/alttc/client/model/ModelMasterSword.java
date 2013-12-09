@@ -1,4 +1,4 @@
-package org.ttp.alttc.client.models;
+package org.ttp.alttc.client.model;
 
 import org.ttp.alttc.common.lib.Models;
 
