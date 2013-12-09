@@ -36,6 +36,7 @@ public class EntityHeart extends EntityItem {
 			if (itemstack.stackSize > 1) 
 				itemstack.stackSize--; 
 			else this.setDead();
+            this.playSound("random.pop", 0.2F, ((this.rand.nextFloat() - this.rand.nextFloat()) * 0.7F + 1.0F) * 2.0F);
 			delayBeforeCanPickup = 5;
 			return;
 		}			
