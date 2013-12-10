@@ -50,9 +50,9 @@ public class ALttC {
 		ModTile.init();
 		ModItems.init();
 		ModEntities.init();
-		proxy.runClientSide();
 		
 		deceptionRenderer = RenderingRegistry.getNextAvailableRenderId();
+		proxy.runClientSide();
 	}
 
 	@EventHandler

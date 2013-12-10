@@ -11,21 +11,21 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 public class ItemTTP extends Item {
-    public ItemTTP(int id, String name) {
-        super(id);
-        setUnlocalizedName(name);
-        setCreativeTab(ALttC.creativeTab);
-        register(name);
-    }
-    
-    public void register(String name){
-        GameRegistry.registerItem(this, name);
-    }
-    
-    @Override
-    @SideOnly(Side.CLIENT)
-    public void registerIcons(IconRegister par1IconRegister)
-    {
-        this.itemIcon = par1IconRegister.registerIcon(Reference.MOD_ID + ":" + this.getUnlocalizedName().replace("item.", ""));
-    }
+	public ItemTTP(int id, String name) {
+		super(id);
+		setUnlocalizedName(name);
+		setCreativeTab(ALttC.creativeTab);
+		register(name);
+	}
+
+	public void register(String name){
+		GameRegistry.registerItem(this, name);
+	}
+
+	@Override
+	@SideOnly(Side.CLIENT)
+	public void registerIcons(IconRegister par1IconRegister)
+	{
+		this.itemIcon = par1IconRegister.registerIcon(Reference.MOD_ID + ":" + this.getUnlocalizedName().replace("item.", ""));
+	}
 }

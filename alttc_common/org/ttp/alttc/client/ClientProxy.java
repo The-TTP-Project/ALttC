@@ -1,7 +1,10 @@
 package org.ttp.alttc.client;
 
+import org.ttp.alttc.ALttC;
 import org.ttp.alttc.CommonProxy;
+import org.ttp.alttc.client.renderer.DeceptionRenderer;
 import org.ttp.alttc.client.renderer.RenderKeese;
+import org.ttp.alttc.common.blocks.BlockDeception;
 import org.ttp.alttc.common.core.handlers.ConfigHandler;
 import org.ttp.alttc.common.entity.EntityKeese;
 
@@ -26,5 +29,6 @@ public class ClientProxy extends CommonProxy {
 	private static void initRender()
 	{
 		RenderingRegistry.registerEntityRenderingHandler(EntityKeese.class, new RenderKeese());
+		RenderingRegistry.registerBlockHandler(ALttC.deceptionRenderer, new DeceptionRenderer());
 	}
 }

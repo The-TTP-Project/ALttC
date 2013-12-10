@@ -10,7 +10,8 @@ import org.ttp.alttc.common.blocks.BlockDeception;
 public class TileDeception extends TileEntity {
 	
 	private Icon[] icon;
-	private int side;
+	private int side, renderID;
+	public Block block;
 	
 	public TileDeception(int side)
 	{
@@ -45,25 +46,33 @@ public class TileDeception extends TileEntity {
 				x--;
 				break;
 			}
-			findIcon(x, y, z);
+			findIconAndRender(x, y, z);
 		}
 	}
 	
-	private void findIcon(int x, int y, int z)
+	private void findIconAndRender(int x, int y, int z)
 	{
-		Block block;
 		block = Block.blocksList[worldObj.getBlockId(x, y, z)];
 		if (block instanceof BlockDeception)
-			icon = ((TileDeception)worldObj.getBlockTileEntity(x, y, z)).getIconArray();
+		{
+			TileDeception te = (TileDeception) worldObj.getBlockTileEntity(x, y, z);
+			icon = te.getIconArray();
+			renderID = te.getRenderID();
+			block = te.block;
+		}
 		else if (block == null)
 		{
 			for (int i = 0; i < 6; i++)
 				icon[i] = Block.stone.getIcon(0, 0);
+			
+			renderID = 0;
 		}
 		else
 		{
 			for (int i = 0; i < 6; i++)
 				icon[i] = block.getBlockTexture(worldObj, x, y, z, i);
+			
+			renderID = block.getRenderType();
 		}
 	}
 	
@@ -75,6 +84,16 @@ public class TileDeception extends TileEntity {
 	private Icon[] getIconArray()
 	{
 		return icon;
+	}
+	
+	public int getRenderID()
+	{
+		return renderID;
+	}
+	
+	public int getSide()
+	{
+		return side;
 	}
 	
 	@Override
