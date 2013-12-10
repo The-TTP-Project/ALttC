@@ -8,6 +8,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.Icon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraftforge.common.ForgeDirection;
 
 public class BlockDeception extends BlockTTP{
 	
@@ -16,10 +17,16 @@ public class BlockDeception extends BlockTTP{
 	public BlockDeception(int id, Material material, String name) {
 		super(id, material, name);
 	}
-	
+
+	@Override
+	public boolean onBlockEventReceived(World par1World, int par2, int par3,
+			int par4, int par5, int par6) {
+		this.side = ((TileDeception)par1World.getBlockTileEntity(par2, par3, par4)).getSide();
+		return true;
+	}
 	@Override
 	public int getRenderType() {
-		return 0;//ALttC.deceptionRenderer;
+		return ALttC.deceptionRenderer;
 	}
 	
 	@Override
@@ -27,6 +34,27 @@ public class BlockDeception extends BlockTTP{
 		return true;
 	}
 	
+	@Override
+	public boolean isBlockSolidOnSide(World world, int x, int y, int z,
+			ForgeDirection side) {
+		return false;
+	}
+	
+	@Override
+	public boolean isOpaqueCube() {	
+		return false;		
+	}
+	
+	@Override
+	public boolean renderAsNormalBlock() {
+		return false;
+	}
+	
+	@Override
+	public boolean isBlockSolid(IBlockAccess par1iBlockAccess, int par2,
+			int par3, int par4, int par5) {
+		return false;
+	}
 	@Override
 	public int onBlockPlaced(World world, int x, int y, int z,
 			int side, float par6, float par7, float par8, int par9) {

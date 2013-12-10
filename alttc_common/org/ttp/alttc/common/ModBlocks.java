@@ -13,7 +13,7 @@ public class ModBlocks {
     
     public static void init() {
         //testblock = new BlockTest(BlockIds.BLOCK_TEST, Material.anvil, Strings.BLOCK_TEST);
-        deceptionBlock = new BlockDeception(ConfigHandler.deceptionBlock, Material.rock, "tile.deceptionBlock");
+        deceptionBlock = new BlockDeception(ConfigHandler.deceptionBlock, Material.rock, "deceptionBlock");
         initBlockRecipes();
     }
     
