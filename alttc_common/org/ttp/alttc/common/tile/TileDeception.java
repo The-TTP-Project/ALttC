@@ -108,5 +108,8 @@ public class TileDeception extends TileEntity {
 		super.readFromNBT(compound);
 		
 		this.side = compound.getByte("side");
+		worldObj.scheduledUpdatesAreImmediate = true;
+		worldObj.scheduleBlockUpdate(xCoord, yCoord, zCoord, 0, 0);
+		worldObj.scheduledUpdatesAreImmediate = false;
 	}
 }

@@ -19,10 +19,12 @@ public class BlockDeception extends BlockTTP{
 	}
 
 	@Override
-	public boolean onBlockEventReceived(World par1World, int par2, int par3,
-			int par4, int par5, int par6) {
-		this.side = ((TileDeception)par1World.getBlockTileEntity(par2, par3, par4)).getSide();
-		return true;
+	public boolean onBlockEventReceived(World world, int x, int y,
+			int z, int par5, int par6) {
+		System.out.println("event received");
+		this.side = ((TileDeception)world.getBlockTileEntity(x, y, z)).getSide();
+		world.scheduleBlockUpdateWithPriority(x, y, z, 1, 1, 1);
+		return false;
 	}
 	@Override
 	public int getRenderType() {
