@@ -15,7 +15,7 @@ public class TileDeception extends TileEntity {
 	private boolean hasRead;
 	
 	// The counter to ASSURE the texture updates on world load
-	private int counter = 50;
+	private int counter = 100;
 	
 	public TileDeception(int side)
 	{
@@ -24,6 +24,7 @@ public class TileDeception extends TileEntity {
 	
 	@Override
 	public void updateEntity() {
+		System.out.println(side);
 		if ((icon == null || (counter > 0 && this.icon[0] == Block.stone.getIcon(0, 0))))
 		{
 			icon = new Icon[6];
@@ -53,7 +54,6 @@ public class TileDeception extends TileEntity {
 			findIconsAndRender(x, y, z);
 			worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
 		}
-		System.out.println(counter);
 	}
 	
 	private Icon[] findIconsAndRender(int x, int y, int z)
@@ -107,15 +107,12 @@ public class TileDeception extends TileEntity {
 	@Override
 	public void writeToNBT(NBTTagCompound compound) {
 		super.writeToNBT(compound);
-		icon = null;
-		
 		compound.setByte("side", ((byte)side));
 	}
 	
 	@Override
 	public void readFromNBT(NBTTagCompound compound) {
 		super.readFromNBT(compound);
-		icon = null;
 		this.side = compound.getByte("side");
 	}
 }
