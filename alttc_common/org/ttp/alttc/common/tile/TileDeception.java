@@ -17,6 +17,8 @@ public class TileDeception extends TileEntity {
 	// The counter to ASSURE the texture updates on world load
 	private int counter = 100;
 	
+	public TileDeception() {}
+	
 	public TileDeception(int side)
 	{
 		this.side = side;
@@ -103,6 +105,7 @@ public class TileDeception extends TileEntity {
 	{
 		return side;
 	}
+	
 	
 	@Override
 	public void writeToNBT(NBTTagCompound compound) {
