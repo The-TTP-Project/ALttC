@@ -45,6 +45,6 @@ public class BlockDeception extends BlockTTP{
 			int par3, int par4, int par5) {
 		TileEntity te = par1iBlockAccess.getBlockTileEntity(par2, par3, par4);
 		
-		return te instanceof TileDeception ? ((TileDeception)te).getIcon() : null;
+		return te instanceof TileDeception ? ((TileDeception)te).getIcon(par5) : null;
 	}
 }
