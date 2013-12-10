@@ -5,10 +5,12 @@ import net.minecraft.item.Item;
 import org.ttp.alttc.common.core.handlers.ConfigHandler;
 import org.ttp.alttc.common.item.ItemHeart;
 import org.ttp.alttc.common.item.ItemMasterSword;
+import org.ttp.alttc.common.item.ItemTTP;
 
 public class ModItems {
     public static Item itemHeart;
     public static Item masterSword;
+    public static Item lensOfTruth;
     
     // Tunics
     public static Item tunicGoron;
@@ -22,5 +24,6 @@ public class ModItems {
     public static void init(){
         itemHeart = new ItemHeart(ConfigHandler.itemHeart, "pickupHeart");
         masterSword = new ItemMasterSword(ConfigHandler.itemMasterSword, "masterSword");
+        lensOfTruth = new ItemTTP(ConfigHandler.itemLens, "lensOfTruth");
     }
 }

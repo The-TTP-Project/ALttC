@@ -21,9 +21,11 @@ public class ConfigHandler {
     public static int itemMasterSword;
     public static int itemTunicGoron;
     public static int itemTunicZora;
-    
+	public static int itemLens;
+
     // Special
     public static boolean renderMasterSword;
+
     
     public static void init(Configuration fConfig)
     {
@@ -38,6 +40,7 @@ public class ConfigHandler {
             //Items
             itemHeart = config.getItem("Items", "Heart", getItemID()).getInt();
             itemMasterSword = config.getItem("Gear", "MasterSword", getItemID()).getInt();
+            itemLens = config.getItem("Items", "Lens Of Truth", getItemID()).getInt();
             
             //Reference values
             renderMasterSword = config.get("Sword", "UseMasterSwordModel", false).getBoolean(false);
