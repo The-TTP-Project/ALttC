@@ -13,19 +13,12 @@ import net.minecraftforge.common.ForgeDirection;
 public class BlockDeception extends BlockTTP{
 	
 	private int side;
+	private Icon icon;
 	
 	public BlockDeception(int id, Material material, String name) {
 		super(id, material, name);
 	}
 
-	@Override
-	public boolean onBlockEventReceived(World world, int x, int y,
-			int z, int par5, int par6) {
-		System.out.println("event received");
-		this.side = ((TileDeception)world.getBlockTileEntity(x, y, z)).getSide();
-		world.scheduleBlockUpdateWithPriority(x, y, z, 1, 1, 1);
-		return false;
-	}
 	@Override
 	public int getRenderType() {
 		return ALttC.deceptionRenderer;
@@ -75,6 +68,7 @@ public class BlockDeception extends BlockTTP{
 			int par3, int par4, int par5) {
 		TileEntity te = par1iBlockAccess.getBlockTileEntity(par2, par3, par4);
 		
-		return te instanceof TileDeception ? ((TileDeception)te).getIcon(par5) : null;
+		icon =  te instanceof TileDeception ? ((TileDeception)te).getIcon(par5) : null;
+		return icon;
 	}
 }

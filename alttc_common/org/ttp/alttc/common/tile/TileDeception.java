@@ -12,6 +12,10 @@ public class TileDeception extends TileEntity {
 	private Icon[] icon;
 	private int side, renderID;
 	public Block block;
+	private boolean hasRead;
+	
+	// The counter to ASSURE the texture updates on world load
+	private int counter = 50;
 	
 	public TileDeception(int side)
 	{
@@ -20,11 +24,10 @@ public class TileDeception extends TileEntity {
 	
 	@Override
 	public void updateEntity() {
-		if (icon == null)
+		if ((icon == null || (counter > 0 && this.icon[0] == Block.stone.getIcon(0, 0))))
 		{
 			icon = new Icon[6];
 			int x = xCoord, y = yCoord, z = zCoord;
-			Block block;
 			switch(side)
 			{
 			case 0:
@@ -46,11 +49,14 @@ public class TileDeception extends TileEntity {
 				x--;
 				break;
 			}
-			findIconAndRender(x, y, z);
+			counter--;
+			findIconsAndRender(x, y, z);
+			worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
 		}
+		System.out.println(counter);
 	}
 	
-	private void findIconAndRender(int x, int y, int z)
+	private Icon[] findIconsAndRender(int x, int y, int z)
 	{
 		block = Block.blocksList[worldObj.getBlockId(x, y, z)];
 		if (block instanceof BlockDeception)
@@ -74,6 +80,8 @@ public class TileDeception extends TileEntity {
 			
 			renderID = block.getRenderType();
 		}
+		
+		return icon;
 	}
 	
 	public Icon getIcon(int side)
@@ -99,6 +107,7 @@ public class TileDeception extends TileEntity {
 	@Override
 	public void writeToNBT(NBTTagCompound compound) {
 		super.writeToNBT(compound);
+		icon = null;
 		
 		compound.setByte("side", ((byte)side));
 	}
@@ -106,10 +115,7 @@ public class TileDeception extends TileEntity {
 	@Override
 	public void readFromNBT(NBTTagCompound compound) {
 		super.readFromNBT(compound);
-		
+		icon = null;
 		this.side = compound.getByte("side");
-		worldObj.scheduledUpdatesAreImmediate = true;
-		worldObj.scheduleBlockUpdate(xCoord, yCoord, zCoord, 0, 0);
-		worldObj.scheduledUpdatesAreImmediate = false;
 	}
 }
