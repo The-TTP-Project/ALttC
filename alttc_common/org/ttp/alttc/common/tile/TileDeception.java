@@ -7,6 +7,8 @@ import net.minecraft.util.Icon;
 
 import org.ttp.alttc.common.blocks.BlockDeception;
 
+import cpw.mods.fml.common.FMLCommonHandler;
+
 public class TileDeception extends TileEntity {
 	
 	private Icon[] icon;
@@ -27,8 +29,7 @@ public class TileDeception extends TileEntity {
 	@Override
 	public void updateEntity() {
 		System.out.println(side);
-		if ((icon == null || (counter > 0 && this.icon[0] == Block.stone.getIcon(0, 0))))
-		{
+		if(FMLCommonHandler.instance().getEffectiveSide().isServer() && (icon == null || (counter > 0 && this.icon[0] == Block.stone.getIcon(0, 0)))){
 			icon = new Icon[6];
 			int x = xCoord, y = yCoord, z = zCoord;
 			switch(side)
@@ -55,6 +56,7 @@ public class TileDeception extends TileEntity {
 			counter--;
 			findIconsAndRender(x, y, z);
 			worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
+			
 		}
 	}
 	
@@ -109,8 +111,8 @@ public class TileDeception extends TileEntity {
 	
 	@Override
 	public void writeToNBT(NBTTagCompound compound) {
-		super.writeToNBT(compound);
 		compound.setByte("side", ((byte)side));
+		super.writeToNBT(compound);
 	}
 	
 	@Override
