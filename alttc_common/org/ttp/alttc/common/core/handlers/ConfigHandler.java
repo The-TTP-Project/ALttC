@@ -13,6 +13,7 @@ public class ConfigHandler {
     
     // Blocks
     private static int blockDefault = 2000;
+    public static int deceptionBlock;
     
     // Items
     private static int itemDefault = 4250;
@@ -32,8 +33,8 @@ public class ConfigHandler {
             config.load();
             
             //Blocks
-            //BlockIds.BLOCK_TEST = config.getBlock(Strings.BLOCK_TEST, BlockIds.BLOCK_TEST_DEFAULT).getInt();
-            
+            deceptionBlock = config.getBlock("Blocks", "deceptionBlock", getBlockID()).getInt();            
+            		
             //Items
             itemHeart = config.getItem("Items", "Heart", getItemID()).getInt();
             itemMasterSword = config.getItem("Gear", "MasterSword", getItemID()).getInt();

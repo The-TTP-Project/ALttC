@@ -7,11 +7,13 @@ import net.minecraftforge.common.Configuration;
 import org.ttp.alttc.common.ModBlocks;
 import org.ttp.alttc.common.ModEntities;
 import org.ttp.alttc.common.ModItems;
+import org.ttp.alttc.common.ModTile;
 import org.ttp.alttc.common.core.TTPLogger;
 import org.ttp.alttc.common.core.handlers.ConfigHandler;
 import org.ttp.alttc.common.lib.Reference;
 import org.ttp.alttc.common.packets.PacketHandler;
 
+import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
@@ -37,15 +39,20 @@ public class ALttC {
 			return new ItemStack(ModItems.itemHeart, 1, 0);
 		}
 	};
+	
+	public static int deceptionRenderer;
 
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
 		TTPLogger.init();
 		ConfigHandler.init(new Configuration(event.getSuggestedConfigurationFile()));
 		ModBlocks.init();
+		ModTile.init();
 		ModItems.init();
 		ModEntities.init();
 		proxy.runClientSide();
+		
+		deceptionRenderer = RenderingRegistry.getNextAvailableRenderId();
 	}
 
 	@EventHandler
