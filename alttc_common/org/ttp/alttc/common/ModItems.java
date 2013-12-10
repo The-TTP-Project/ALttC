@@ -5,8 +5,6 @@ import net.minecraft.item.Item;
 import org.ttp.alttc.common.core.handlers.ConfigHandler;
 import org.ttp.alttc.common.item.ItemHeart;
 import org.ttp.alttc.common.item.ItemMasterSword;
-import org.ttp.alttc.common.lib.ItemIds;
-import org.ttp.alttc.common.lib.Strings;
 
 public class ModItems {
     public static Item itemHeart;

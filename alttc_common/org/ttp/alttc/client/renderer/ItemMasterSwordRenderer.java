@@ -58,6 +58,7 @@ public class ItemMasterSwordRenderer implements IItemRenderer {
 
 	private void renderMasterSword(float x, float y, float z, float scale, boolean fp, boolean inv, boolean eq) {
 
+		@SuppressWarnings("unused")
 		TextureManager texture = Minecraft.getMinecraft().renderEngine;
 
 		GL11.glPushMatrix();

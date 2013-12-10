@@ -2,8 +2,8 @@ package org.ttp.alttc.client;
 
 import org.ttp.alttc.CommonProxy;
 import org.ttp.alttc.client.renderer.RenderKeese;
+import org.ttp.alttc.common.core.handlers.ConfigHandler;
 import org.ttp.alttc.common.entity.EntityKeese;
-import org.ttp.alttc.common.lib.Reference;
 
 import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.relauncher.Side;
@@ -18,7 +18,7 @@ public class ClientProxy extends CommonProxy {
 		initItemRenderer();
 	}
 	public void initItemRenderer() {
-		if (Reference.USE_MASTER_SWORD_MODEL) {
+		if (ConfigHandler.renderMasterSword) {
 //			MinecraftForgeClient.registerItemRenderer(ModItems.masterSword.itemID, new ItemMasterSwordRenderer());
 		}
 	}
