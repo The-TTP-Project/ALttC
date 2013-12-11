@@ -31,13 +31,20 @@ public class HandlerBoots {
 		EntityLivingBase entity = (EntityLivingBase)fEvent.entity;
 		ItemStack boots = entity.getCurrentItemOrArmor(0);
 		//ItemStack boots = entity.getCurrentItemOrArmor(1);
-		
-		if(boots == null) 
+
+		if (boots == null)
 			return;
-			
-		if(boots.getItem() != Item.blazeRod && boots.getItem() != Item.blazePowder)
+
+		if (boots.getItem() == Item.blazePowder)
+			// if(boots.getItem() == ModItems.bootsPegasus)
+			AddPegasus(entity);
+		else
+			RemovePegasus(entity);
+
+		if (boots.getItem() != Item.blazeRod
+				&& boots.getItem() != Item.blazePowder)
 			return;
-		
+
 		DataWatcher entityData = entity.getDataWatcher();
 		
 		/* Safety Checking */
@@ -89,11 +96,7 @@ public class HandlerBoots {
 			}
 		}
 		
-		if(boots.getItem() == Item.blazePowder)
-		//if(boots.getItem() == ModItems.bootsPegasus)
-			AddPegasus(entity);
-		else
-			RemovePegasus(entity);
+		
 	}
 	
 	@ForgeSubscribe
