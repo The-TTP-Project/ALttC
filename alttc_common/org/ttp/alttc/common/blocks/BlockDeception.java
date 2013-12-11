@@ -5,6 +5,7 @@ import org.ttp.alttc.common.tile.TileDeception;
 
 import net.minecraft.block.material.Material;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.Icon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
@@ -74,12 +75,8 @@ public class BlockDeception extends BlockTTP{
 	}
 	
 	@Override
-	public boolean canCollideCheck(int par1, boolean par2) {
-		return this.isCollidable();
-	}
-
-	@Override
-	public boolean isCollidable() {
-		return false;
+	public AxisAlignedBB getCollisionBoundingBoxFromPool(World par1World,
+			int par2, int par3, int par4) {
+		return null;
 	}
 }
