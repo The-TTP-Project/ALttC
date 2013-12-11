@@ -32,19 +32,10 @@ public class HandlerBoots {
 		ItemStack boots = entity.getCurrentItemOrArmor(0);
 		//ItemStack boots = entity.getCurrentItemOrArmor(1);
 
-		if (boots == null)
+		if (boots == null || entity == null || boots.getItem() != Item.blazeRod)
 			return;
 
-		if (boots.getItem() == Item.blazePowder)
-			// if(boots.getItem() == ModItems.bootsPegasus)
-			AddPegasus(entity);
-		else
-			RemovePegasus(entity);
-
-		if (boots.getItem() != Item.blazeRod
-				&& boots.getItem() != Item.blazePowder)
-			return;
-
+		
 		DataWatcher entityData = entity.getDataWatcher();
 		
 		/* Safety Checking */
@@ -94,9 +85,29 @@ public class HandlerBoots {
 				if((entity.posY % 1 < 0.001 && !entity.worldObj.isBlockSolidOnSide(MathHelper.floor_double(entity.posX), MathHelper.floor_double(entity.posY - 1), MathHelper.floor_double(entity.posZ), ForgeDirection.UP)))
 					entityData.updateObject(24, 30);
 			}
+		}	
+	}
+	
+	@ForgeSubscribe
+	public void handleLivingUpdatePegasus(LivingUpdateEvent fEvent)
+	{
+		EntityLivingBase entity = (EntityLivingBase)fEvent.entity;
+		ItemStack boots = entity.getCurrentItemOrArmor(0);
+		
+		if (boots == null || entity == null)
+			return;
+		
+		if (boots.getItem() == Item.blazePowder)
+		{
+			
+			AddPegasus(entity);
+			return;
 		}
-		
-		
+		else if (boots.getItem() != Item.blazePowder)
+		{
+			RemovePegasus(entity);
+			return;
+		}
 	}
 	
 	@ForgeSubscribe
