@@ -119,6 +119,6 @@ public class TileDeception extends TileEntity {
 	public void readFromNBT(NBTTagCompound compound) {
 		super.readFromNBT(compound);
 		this.side = compound.getByte("side");
-		this.meta = compound.getByte("side");
+		this.meta = compound.getByte("meta");
 	}
 }

@@ -11,6 +11,8 @@ import org.ttp.alttc.common.ModItems;
 import org.ttp.alttc.common.ModTile;
 import org.ttp.alttc.common.core.TTPLogger;
 import org.ttp.alttc.common.core.handlers.ConfigHandler;
+import org.ttp.alttc.common.handlers.HandlerBoots;
+import org.ttp.alttc.common.handlers.HandlerTunic;
 import org.ttp.alttc.common.handlers.HarvestHandler;
 import org.ttp.alttc.common.lib.Reference;
 import org.ttp.alttc.common.packets.PacketHandler;
@@ -54,6 +56,8 @@ public class ALttC {
 		ModEntities.init();
 		
 		MinecraftForge.EVENT_BUS.register(new HarvestHandler());
+		MinecraftForge.EVENT_BUS.register(new HandlerTunic());
+		MinecraftForge.EVENT_BUS.register(new HandlerBoots());
 		
 		deceptionRenderer = RenderingRegistry.getNextAvailableRenderId();
 		proxy.runClientSide();
