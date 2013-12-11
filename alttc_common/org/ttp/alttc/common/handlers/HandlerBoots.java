@@ -94,28 +94,6 @@ public class HandlerBoots {
 	}
 	
 	@ForgeSubscribe
-	public void handleLivingUpdatePegasus(LivingUpdateEvent fEvent)
-	{
-		EntityLivingBase entity = (EntityLivingBase)fEvent.entity;
-		ItemStack boots = entity.getCurrentItemOrArmor(0);
-		
-		if (boots == null || entity == null)
-			return;
-		
-		if (boots.getItem() == Item.blazePowder)
-		{
-			
-			AddPegasus(entity);
-			return;
-		}
-		else if (boots.getItem() != Item.blazePowder)
-		{
-			RemovePegasus(entity);
-			return;
-		}
-	}
-	
-	@ForgeSubscribe
 	public void Handler_LivingJump(LivingJumpEvent fEvent)
 	{
 		if(!(fEvent.entity instanceof EntityPlayer))
