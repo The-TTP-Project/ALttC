@@ -16,16 +16,17 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 @SuppressWarnings("unused")
-public class ItemMasterSword extends ItemTTP {
+public class ItemWeaponBase extends ItemTTP {
 	
 	private float weaponDamage;
 	private final EnumToolMaterial toolMaterial;
     
-    public ItemMasterSword(int id, String name) {
+    public ItemWeaponBase(int id, String name) {
 		super(id, name);
 		toolMaterial = EnumToolMaterial.EMERALD;
 		weaponDamage = 8.0f;
 		this.setMaxDamage(0);
+		setMaxStackSize(1);
 	}
     
     public float func_82803_g()

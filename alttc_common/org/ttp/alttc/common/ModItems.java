@@ -3,13 +3,15 @@ package org.ttp.alttc.common;
 import net.minecraft.item.Item;
 
 import org.ttp.alttc.common.core.handlers.ConfigHandler;
+import org.ttp.alttc.common.item.ItemDekuStick;
 import org.ttp.alttc.common.item.ItemHeart;
-import org.ttp.alttc.common.item.ItemMasterSword;
+import org.ttp.alttc.common.item.ItemWeaponBase;
 import org.ttp.alttc.common.item.ItemTTP;
 
 public class ModItems {
     public static Item itemHeart;
     public static Item masterSword;
+    public static Item dekuStick;
     public static Item lensOfTruth;
     
     // Tunics
@@ -23,7 +25,8 @@ public class ModItems {
     
     public static void init(){
         itemHeart = new ItemHeart(ConfigHandler.itemHeart, "pickupHeart");
-        masterSword = new ItemMasterSword(ConfigHandler.itemMasterSword, "masterSword");
+        masterSword = new ItemWeaponBase(ConfigHandler.itemMasterSword, "masterSword");
+        dekuStick = new ItemDekuStick(ConfigHandler.dekuStick, "dekuStick");
         lensOfTruth = new ItemTTP(ConfigHandler.itemLens, "lensOfTruth");
     }
 }

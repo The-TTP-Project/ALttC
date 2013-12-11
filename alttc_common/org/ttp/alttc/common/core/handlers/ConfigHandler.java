@@ -19,12 +19,14 @@ public class ConfigHandler {
     private static int itemDefault = 4250;
     public static int itemHeart;
     public static int itemMasterSword;
+	public static int dekuStick;
     public static int itemTunicGoron;
     public static int itemTunicZora;
         public static int itemLens;
 
     // Special
     public static boolean renderMasterSword;
+
 
     
     public static void init(Configuration fConfig)
@@ -40,6 +42,7 @@ public class ConfigHandler {
             //Items
             itemHeart = config.getItem("Items", "Heart", getItemID()).getInt();
             itemMasterSword = config.getItem("Gear", "MasterSword", getItemID()).getInt();
+            dekuStick = config.getItem("Gear", getItemID()).getInt();
             itemLens = config.getItem("Items", "Lens Of Truth", getItemID()).getInt();
             
             //Reference values
