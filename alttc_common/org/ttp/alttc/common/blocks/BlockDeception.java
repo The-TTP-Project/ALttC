@@ -72,4 +72,14 @@ public class BlockDeception extends BlockTTP{
 		icon =  te instanceof TileDeception ? ((TileDeception)te).getIcon(par5) : null;
 		return icon;
 	}
+	
+	@Override
+	public boolean canCollideCheck(int par1, boolean par2) {
+		return this.isCollidable();
+	}
+
+	@Override
+	public boolean isCollidable() {
+		return false;
+	}
 }
