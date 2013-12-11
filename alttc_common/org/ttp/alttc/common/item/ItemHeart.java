@@ -1,4 +1,4 @@
-package org.ttp.alttc.common.item;
+	package org.ttp.alttc.common.item;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.item.ItemStack;

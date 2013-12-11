@@ -1,13 +1,19 @@
 package org.ttp.alttc.common.item;
 
+import java.util.List;
+
+import org.ttp.alttc.common.lib.Reference;
+
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumAction;
 import net.minecraft.item.EnumToolMaterial;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.Icon;
 import net.minecraft.world.World;
 
 public class ItemDekuStick extends ItemWeaponBase {
@@ -19,9 +25,27 @@ public class ItemDekuStick extends ItemWeaponBase {
 		super(id, name);
 		toolMaterial = EnumToolMaterial.WOOD;
 		setMaxStackSize(64);
-		setMaxDamage(6);
+		setMaxDamage(8);
 	}
 
+	private Icon[] icons = new Icon[2];
+	
+	@Override
+	public void registerIcons(IconRegister register) {
+		icons[0] = register.registerIcon(Reference.MOD_ID + ":dekuStick");
+		icons[1] = register.registerIcon(Reference.MOD_ID + ":dekuStickFire");
+	}
+	
+	@Override
+	public Icon getIcon(ItemStack stack, int pass) {
+		return stack.getItemDamage() > 0 ? icons[1] : icons[0];
+	}
+	
+	@Override
+	public Icon getIconFromDamage(int par1) {
+		return par1 > 0 ? icons[1] : icons[0];
+	}
+	
 	public EnumAction getItemUseAction(ItemStack par1ItemStack) {
 		return EnumAction.none;
 	}
@@ -36,26 +60,36 @@ public class ItemDekuStick extends ItemWeaponBase {
 	public void onUpdate(ItemStack stack, World world, Entity entity, int par4,
 			boolean par5) {
 		// System.out.println(stack.getItemDamage());
-		if (stack.getItemDamage() != 0) {
-			long worldTimeStart = -1;
+		if (stack.getItemDamage() != 0 && entity instanceof EntityPlayer && !world.isRemote) {
+			/*long worldTimeStart = -1;
 			if (worldTimeStart == -1)
 				worldTimeStart = world.getWorldTime();
 			if ((world.getWorldTime() - worldTimeStart) % 20 == 0) {
 				stack.damageItem(1, (EntityLivingBase) entity);
+			}*/
+			if (world.getWorldTime() % 20 == 0)
+				stack.damageItem(1, (EntityLivingBase) entity);
+			if (stack.getItemDamage() > 7 && stack.stackSize == 1)
+				((EntityPlayer)entity).inventory.consumeInventoryItem(this.itemID);
+			else if (stack.getItemDamage() > 7 && stack.stackSize > 1)
+			{
+				stack.stackSize--;
+				stack.setItemDamage(0);
 			}
 		}
+		
 	}
 
 	@Override
 	public boolean onEntitySwing(EntityLivingBase player, ItemStack stack) {
 
-		if (player instanceof EntityPlayer
+		if (player instanceof EntityPlayer && Minecraft.getMinecraft().objectMouseOver != null
 				&& searchForFire((EntityPlayer) player, player.worldObj,
 						Minecraft.getMinecraft().objectMouseOver.blockX,
 						Minecraft.getMinecraft().objectMouseOver.blockY,
 						Minecraft.getMinecraft().objectMouseOver.blockZ)) {
 			System.out.println("test2");
-			stack.setItemDamage(5);
+			stack.setItemDamage(1);
 			return true;
 		}
 		return false;
@@ -84,7 +118,7 @@ public class ItemDekuStick extends ItemWeaponBase {
 
 	// Doesnt harvest webs
 	public boolean canHarvestBlock(Block par1Block) {
-		return par1Block.blockID == Block.web.blockID;
+		return false;
 	}
 
 	public boolean hitEntity(ItemStack par1ItemStack,
@@ -95,5 +129,36 @@ public class ItemDekuStick extends ItemWeaponBase {
 			par1ItemStack = null;
 		return true;
 	}
-
+	
+	@Override
+	public boolean onLeftClickEntity(ItemStack stack, EntityPlayer player, Entity entity) 
+	{
+		if (stack.getItemDamage() > 0 && entity instanceof EntityLivingBase && !player.worldObj.isRemote)
+		{
+			((EntityLivingBase)entity).setHealth(((EntityLivingBase)entity).getHealth() - 8.0f);
+			return false;
+		}
+		return true;
+		
+	}
+	
+	@SuppressWarnings({ "unchecked", "rawtypes" })
+	@Override
+	public void addInformation(ItemStack stack,
+			EntityPlayer player, List list, boolean par4) {
+		super.addInformation(stack, player, list, par4);
+		
+		if (stack.getItemDamage() == 0)
+		{
+			list.add("Does double damage when on fire.");
+			list.add("Set this on fire by punching fire with it!");
+		}
+		else
+		{
+			list.add("How are you still holding this?");
+			list.add("And why are you reading this?");
+		}		
+	}
+	
+	
 }
