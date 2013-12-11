@@ -61,12 +61,7 @@ public class ItemDekuStick extends ItemWeaponBase {
 			boolean par5) {
 		// System.out.println(stack.getItemDamage());
 		if (stack.getItemDamage() != 0 && entity instanceof EntityPlayer && !world.isRemote) {
-			/*long worldTimeStart = -1;
-			if (worldTimeStart == -1)
-				worldTimeStart = world.getWorldTime();
-			if ((world.getWorldTime() - worldTimeStart) % 20 == 0) {
-				stack.damageItem(1, (EntityLivingBase) entity);
-			}*/
+			
 			if (world.getWorldTime() % 20 == 0)
 				stack.damageItem(1, (EntityLivingBase) entity);
 			if (stack.getItemDamage() > 7 && stack.stackSize == 1)
@@ -88,7 +83,6 @@ public class ItemDekuStick extends ItemWeaponBase {
 						Minecraft.getMinecraft().objectMouseOver.blockX,
 						Minecraft.getMinecraft().objectMouseOver.blockY,
 						Minecraft.getMinecraft().objectMouseOver.blockZ)) {
-			System.out.println("test2");
 			stack.setItemDamage(1);
 			return true;
 		}
@@ -97,7 +91,6 @@ public class ItemDekuStick extends ItemWeaponBase {
 
 	private boolean searchForFire(EntityPlayer player, World world, int x,
 			int y, int z) {
-		System.out.println("test");
 		switch (Minecraft.getMinecraft().objectMouseOver.sideHit) {
 		case 0:
 			return world.getBlockId(x, y - 1, z) == Block.fire.blockID;
@@ -136,9 +129,8 @@ public class ItemDekuStick extends ItemWeaponBase {
 		if (stack.getItemDamage() > 0 && entity instanceof EntityLivingBase && !player.worldObj.isRemote)
 		{
 			((EntityLivingBase)entity).setHealth(((EntityLivingBase)entity).getHealth() - 8.0f);
-			return false;
 		}
-		return true;
+		return false;
 		
 	}
 	
