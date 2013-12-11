@@ -32,34 +32,43 @@ public class HandlerBoots {
 		ItemStack boots = entity.getCurrentItemOrArmor(0);
 		//ItemStack boots = entity.getCurrentItemOrArmor(1);
 
-		if (boots == null || entity == null || boots.getItem() != Item.blazeRod)
+		if(boots == null)
 			return;
-
 		
-		DataWatcher entityData = entity.getDataWatcher();
+		if(boots.getItem() != Item.blazePowder && boots.getItem() != Item.blazeRod)
+			return;
 		
-		/* Safety Checking */
-		// Make sure we're safely affecting the hover ticks value of this entity.
-		boolean bitsafe = false;
-		@SuppressWarnings("unchecked")
-		List<WatchableObject> watched = entityData.getAllWatched();
-		for(WatchableObject obj : watched)
+		if(boots.getItem() == Item.blazePowder)
 		{
-			if(obj.getDataValueId() == 24)
-			{
-				bitsafe = true;
-				break;
-			}
+			AddPegasus(entity);
+			return;
 		}
-		// Our necessary value isn't there, add it.
-		if(!bitsafe)
-			entityData.addObject(24, Integer.valueOf(0));
-		/* Safety Checking */
+		else
+			RemovePegasus(entity);
 		
-		// Hover boots
 		if(boots.getItem() == Item.blazeRod)
 		//if(boots.getItem() == ModItems.bootsHover)
 		{
+			DataWatcher entityData = entity.getDataWatcher();
+			
+			/* Safety Checking */
+			// Make sure we're safely affecting the hover ticks value of this entity.
+			boolean bitsafe = false;
+			@SuppressWarnings("unchecked")
+			List<WatchableObject> watched = entityData.getAllWatched();
+			for(WatchableObject obj : watched)
+			{
+				if(obj.getDataValueId() == 24)
+				{
+					bitsafe = true;
+					break;
+				}
+			}
+			// Our necessary value isn't there, add it.
+			if(!bitsafe)
+				entityData.addObject(24, Integer.valueOf(0));
+			/* Safety Checking */
+			
 			// Check if they're in the air.
 			if(!entity.onGround && entity.motionY <= 0)
 			{
@@ -67,14 +76,10 @@ public class HandlerBoots {
 				{
 					// Bump them up a little if this their first falling tick only.
 					if(entityData.getWatchableObjectInt(24) == 30)
-					{
 						entity.motionY = entity.motionY * -0.7D;
-					}
 					else
-					{
 						entity.motionY = 0;
-					}
-					
+								
 					// They have some ticks.  We need to decrease their ticks by 1.
 					entityData.updateObject(24, entityData.getWatchableObjectInt(24)-1);
 				}
@@ -85,7 +90,7 @@ public class HandlerBoots {
 				if((entity.posY % 1 < 0.001 && !entity.worldObj.isBlockSolidOnSide(MathHelper.floor_double(entity.posX), MathHelper.floor_double(entity.posY - 1), MathHelper.floor_double(entity.posZ), ForgeDirection.UP)))
 					entityData.updateObject(24, 30);
 			}
-		}	
+		}
 	}
 	
 	@ForgeSubscribe
