@@ -32,7 +32,7 @@ public class HandlerBoots {
 		ItemStack boots = entity.getCurrentItemOrArmor(0);
 		//ItemStack boots = entity.getCurrentItemOrArmor(1);
 		
-		if(boots == null)
+		if(boots == null || boots.getItem().itemID != Item.blazeRod.itemID)
 			return;
 		
 		DataWatcher entityData = entity.getDataWatcher();
