@@ -42,9 +42,9 @@ public class ConfigHandler {
             //Items
             itemHeart = config.getItem("Items", "Heart", getItemID()).getInt();
             itemMasterSword = config.getItem("Gear", "MasterSword", getItemID()).getInt();
-            dekuStick = config.getItem("Gear", getItemID()).getInt();
             itemLens = config.getItem("Items", "Lens Of Truth", getItemID()).getInt();
-            
+            dekuStick = config.getItem("Gear", "Deku Stick", getItemID()).getInt();
+
             //Reference values
             renderMasterSword = config.get("Sword", "UseMasterSwordModel", false).getBoolean(false);
             

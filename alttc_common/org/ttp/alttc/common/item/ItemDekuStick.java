@@ -18,7 +18,7 @@ public class ItemDekuStick extends ItemWeaponBase{
 		toolMaterial = EnumToolMaterial.WOOD;
 		setMaxStackSize(64);
 	}
-	
+
     public EnumAction getItemUseAction(ItemStack par1ItemStack)
     {
         return EnumAction.none;
