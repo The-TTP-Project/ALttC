@@ -12,7 +12,7 @@ import cpw.mods.fml.common.FMLCommonHandler;
 public class TileDeception extends TileEntity {
 	
 	private Icon[] icon;
-	private int side, renderID;
+	private int side, meta, renderID;
 	public Block block;
 	private boolean hasRead;
 	
@@ -21,9 +21,10 @@ public class TileDeception extends TileEntity {
 	
 	public TileDeception() {}
 	
-	public TileDeception(int side)
+	public TileDeception(int side, int meta)
 	{
 		this.side = side;
+		this.meta = meta;
 	}
 	
 	@Override
@@ -55,7 +56,6 @@ public class TileDeception extends TileEntity {
 			counter--;
 			findIconsAndRender(x, y, z);
 			worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
-			
 		}
 	}
 	
@@ -79,7 +79,7 @@ public class TileDeception extends TileEntity {
 		else
 		{
 			for (int i = 0; i < 6; i++)
-				icon[i] = block.getBlockTexture(worldObj, x, y, z, i);
+				icon[i] = block.getIcon(i, meta);
 			
 			renderID = block.getRenderType();
 		}
@@ -111,6 +111,7 @@ public class TileDeception extends TileEntity {
 	@Override
 	public void writeToNBT(NBTTagCompound compound) {
 		compound.setByte("side", ((byte)side));
+		compound.setByte("meta", (byte)meta);
 		super.writeToNBT(compound);
 	}
 	
@@ -118,5 +119,6 @@ public class TileDeception extends TileEntity {
 	public void readFromNBT(NBTTagCompound compound) {
 		super.readFromNBT(compound);
 		this.side = compound.getByte("side");
+		this.meta = compound.getByte("side");
 	}
 }

@@ -12,7 +12,7 @@ import net.minecraftforge.common.ForgeDirection;
 
 public class BlockDeception extends BlockTTP{
 	
-	private int side;
+	private int side, meta;
 	private Icon icon;
 	
 	public BlockDeception(int id, Material material, String name) {
@@ -54,13 +54,14 @@ public class BlockDeception extends BlockTTP{
 	public int onBlockPlaced(World world, int x, int y, int z,
 			int side, float par6, float par7, float par8, int par9) {
 		this.side = side;
+		this.meta = world.getBlockMetadata(x, y, z);
 		return super.onBlockPlaced(world, x, y, z, side, par6, par7, par8,
 				par9);
 	}
 	
 	@Override
 	public TileEntity createTileEntity(World world, int metadata) {
-		return new TileDeception(side);
+		return new TileDeception(side, meta);
 	}
 	
 	@Override

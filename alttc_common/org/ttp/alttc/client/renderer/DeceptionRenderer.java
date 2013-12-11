@@ -29,10 +29,11 @@ public class DeceptionRenderer implements ISimpleBlockRenderingHandler{
 		Block TEblock = ((TileDeception)world.getBlockTileEntity(x, y, z)).block;
 		
 		// Condensed if-else to avoid NPE in RenderBlocks
-		if (!(TEblock instanceof BlockDeception))
-			renderer.renderBlockByRenderType(TEblock == null ? Block.stone : TEblock, x, y, z);
-		else
+		if (TEblock instanceof BlockDeception)
 			renderer.renderStandardBlock(TEblock, x, y, z);
+		else
+			renderer.renderBlockByRenderType(TEblock == null ? Block.stone : TEblock, x, y, z);
+			
 		
 		return true;
 	}
