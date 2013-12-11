@@ -3,6 +3,7 @@ package org.ttp.alttc;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.Configuration;
+import net.minecraftforge.common.MinecraftForge;
 
 import org.ttp.alttc.common.ModBlocks;
 import org.ttp.alttc.common.ModEntities;
@@ -10,6 +11,7 @@ import org.ttp.alttc.common.ModItems;
 import org.ttp.alttc.common.ModTile;
 import org.ttp.alttc.common.core.TTPLogger;
 import org.ttp.alttc.common.core.handlers.ConfigHandler;
+import org.ttp.alttc.common.handlers.HarvestHandler;
 import org.ttp.alttc.common.lib.Reference;
 import org.ttp.alttc.common.packets.PacketHandler;
 
@@ -50,6 +52,8 @@ public class ALttC {
 		ModTile.init();
 		ModItems.init();
 		ModEntities.init();
+		
+		MinecraftForge.EVENT_BUS.register(new HarvestHandler());
 		
 		deceptionRenderer = RenderingRegistry.getNextAvailableRenderId();
 		proxy.runClientSide();
