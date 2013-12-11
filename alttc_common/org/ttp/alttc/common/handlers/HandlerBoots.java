@@ -32,7 +32,7 @@ public class HandlerBoots {
 		ItemStack boots = entity.getCurrentItemOrArmor(0);
 		//ItemStack boots = entity.getCurrentItemOrArmor(1);
 		
-		if(boots == null || boots.getItem().itemID != Item.blazeRod.itemID)
+		if(boots == null || boots.getItem() == Item.blazeRod || boots.getItem() == Item.blazePowder)
 			return;
 		
 		DataWatcher entityData = entity.getDataWatcher();
@@ -75,7 +75,7 @@ public class HandlerBoots {
 					
 					// They have some ticks.  We need to decrease their ticks by 1 and cancel the fall.
 					entityData.updateObject(24, entityData.getWatchableObjectInt(24)-1);
-					entity.motionY = 0;
+					entity.motionY = -0.03;
 				}
 			}
 			else
