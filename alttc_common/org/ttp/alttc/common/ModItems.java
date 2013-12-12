@@ -27,6 +27,6 @@ public class ModItems {
         itemHeart = new ItemHeart(ConfigHandler.itemHeart, "pickupHeart");
         masterSword = new ItemWeaponBase(ConfigHandler.itemMasterSword, "masterSword");
         dekuStick = new ItemDekuStick(ConfigHandler.dekuStick, "dekuStick");
-        lensOfTruth = new ItemTTP(ConfigHandler.itemLens, "lensOfTruth");
+        lensOfTruth = new ItemTTP(ConfigHandler.itemLens, "lensOfTruth", true);
     }
 }
