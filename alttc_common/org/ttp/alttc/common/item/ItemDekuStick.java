@@ -11,19 +11,14 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumAction;
-import net.minecraft.item.EnumToolMaterial;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
 import net.minecraft.world.World;
 
 public class ItemDekuStick extends ItemWeaponBase {
 
-	private float weaponDamage;
-	private final EnumToolMaterial toolMaterial;
-
 	public ItemDekuStick(int id, String name) {
 		super(id, name);
-		toolMaterial = EnumToolMaterial.WOOD;
 		setMaxStackSize(64);
 		setMaxDamage(8);
 	}
