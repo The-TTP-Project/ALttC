@@ -1,9 +1,11 @@
 package org.ttp.alttc.common.blocks;
 
 import org.ttp.alttc.ALttC;
+import org.ttp.alttc.common.lib.Reference;
 import org.ttp.alttc.common.tile.TileDeception;
 
 import net.minecraft.block.material.Material;
+import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.Icon;
@@ -18,6 +20,11 @@ public class BlockDeception extends BlockTTP{
 	
 	public BlockDeception(int id, Material material, String name) {
 		super(id, material, name);
+	}
+	
+	@Override
+	public void registerIcons(IconRegister register) {
+		this.blockIcon = register.registerIcon(Reference.MOD_ID + ":deceptionBlock");
 	}
 
 	@Override
@@ -70,7 +77,7 @@ public class BlockDeception extends BlockTTP{
 			int par3, int par4, int par5) {
 		TileEntity te = par1iBlockAccess.getBlockTileEntity(par2, par3, par4);
 		
-		icon =  te instanceof TileDeception ? ((TileDeception)te).getIcon(par5) : null;
+		icon =  te instanceof TileDeception ? ((TileDeception)te).getIcon(par5) : this.blockIcon;
 		return icon;
 	}
 	
