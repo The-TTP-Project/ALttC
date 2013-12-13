@@ -7,14 +7,11 @@ import net.minecraft.util.Icon;
 
 import org.ttp.alttc.common.blocks.BlockDeception;
 
-import cpw.mods.fml.common.FMLCommonHandler;
-
 public class TileDeception extends TileEntity {
 	
 	private Icon[] icon;
 	private int side, meta, renderID;
 	public Block block;
-	private boolean hasRead;
 	
 	// The counter to ASSURE the texture updates on world load
 	private int counter = 100;

@@ -3,6 +3,8 @@ package org.ttp.alttc.common.handlers;
 import java.util.List;
 import java.util.UUID;
 
+import org.ttp.alttc.common.ModItems;
+
 import net.minecraft.entity.DataWatcher;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -10,7 +12,6 @@ import net.minecraft.entity.WatchableObject;
 import net.minecraft.entity.ai.attributes.AttributeInstance;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.MathHelper;
 import net.minecraftforge.common.ForgeDirection;
@@ -29,25 +30,23 @@ public class HandlerBoots {
 		
 		// We know this is an EntityLivingBase at least already
 		EntityLivingBase entity = (EntityLivingBase)fEvent.entity;
-		ItemStack boots = entity.getCurrentItemOrArmor(0);
-		//ItemStack boots = entity.getCurrentItemOrArmor(1);
+		ItemStack boots = entity.getCurrentItemOrArmor(1);
 
 		if(boots == null)
 			return;
 		
-		if(boots.getItem() != Item.blazePowder && boots.getItem() != Item.blazeRod)
+		if(boots.getItem() != ModItems.bootsHover && boots.getItem() != ModItems.bootsPegasus)
 			return;
 		
-		if(boots.getItem() == Item.blazePowder)
+		if(boots.getItem() == ModItems.bootsPegasus)
 		{
 			AddPegasus(entity);
 			return;
 		}
 		else
 			RemovePegasus(entity);
-		
-		if(boots.getItem() == Item.blazeRod)
-		//if(boots.getItem() == ModItems.bootsHover)
+
+		if(boots.getItem() == ModItems.bootsHover)
 		{
 			DataWatcher entityData = entity.getDataWatcher();
 			
@@ -101,13 +100,12 @@ public class HandlerBoots {
 		
 		// We know this is an EntityLivingBase at least already
 		EntityLivingBase entity = (EntityLivingBase)fEvent.entity;
-		ItemStack boots = entity.getCurrentItemOrArmor(0);
-		//ItemStack boots = entity.getCurrentItemOrArmor(1);
+		ItemStack boots = entity.getCurrentItemOrArmor(1);
 		
 		if(boots == null) 
 			return;
 			
-		if(boots.getItem() != Item.blazeRod)
+		if(boots.getItem() != ModItems.bootsHover)
 			return;
 		
 		DataWatcher entityData = entity.getDataWatcher();
@@ -143,7 +141,6 @@ public class HandlerBoots {
 		
 		AttributeModifier modSpeed = new AttributeModifier(pegasusUUID, "PegasusBoots", 0.2D, 1); 
 		
-		// Creatures and Players use 2 different values here
 		speedAttr.removeModifier(modSpeed);
 		speedAttr.applyModifier(modSpeed);
 	}

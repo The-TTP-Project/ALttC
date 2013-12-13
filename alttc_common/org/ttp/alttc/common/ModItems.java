@@ -20,7 +20,6 @@ public class ModItems {
     
     // Boots
     public static Item bootsPegasus;
-    public static Item bootsIron;
     public static Item bootsHover;
     
     public static void init(){
