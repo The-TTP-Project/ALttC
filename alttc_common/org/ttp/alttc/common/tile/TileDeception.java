@@ -5,6 +5,8 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.Icon;
 
+import org.ttp.alttc.client.renderer.DeceptionRenderer;
+import org.ttp.alttc.common.ModBlocks;
 import org.ttp.alttc.common.blocks.BlockDeception;
 
 public class TileDeception extends TileEntity {
@@ -16,14 +18,22 @@ public class TileDeception extends TileEntity {
 	// The counter to ASSURE the texture updates on world load
 	private int counter = 100;
 	
-	public TileDeception() {}
+	public TileDeception() {
+		this.side = BlockDeception.side;
+		this.meta = BlockDeception.meta;
+	}
 	
+	@Deprecated
 	public TileDeception(int side, int meta)
 	{
 		this.side = side;
 		this.meta = meta;
 	}
 	
+	public int getMeta() {
+		return meta;
+	}
+
 	@Override
 	public void updateEntity() {
 		if((icon == null || (counter > 0 && this.icon[0] == Block.stone.getIcon(0, 0)))){
