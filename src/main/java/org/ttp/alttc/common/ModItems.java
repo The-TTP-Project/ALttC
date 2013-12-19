@@ -1,5 +1,6 @@
 package org.ttp.alttc.common;
 
+import net.minecraft.item.EnumArmorMaterial;
 import net.minecraft.item.Item;
 
 import org.ttp.alttc.ALttC;
@@ -29,8 +30,8 @@ public class ModItems {
 		itemHeart = new ItemHeart(ConfigHandler.itemHeart, "pickupHeart");
 		masterSword = new ItemWeaponBase(ConfigHandler.itemMasterSword, "masterSword");
 		dekuStick = new ItemDekuStick(ConfigHandler.dekuStick, "dekuStick");
-		lensOfTruth = new ItemTTP(ConfigHandler.itemLens, "lensOfTruth");
-		tunicZora = new ItemArmorTunic(1000, "tunic.zora", ALttC.proxy.addArmor("zora"));
-		tunicGoron = new ItemArmorTunic(1001, "tunic.goron", ALttC.proxy.addArmor("goron"));
+		lensOfTruth = new ItemTTP(ConfigHandler.itemLens, "lensOfTruth", false);
+		tunicZora = new ItemArmorTunic(1000, EnumArmorMaterial.CLOTH, "tunic.zora", ALttC.proxy.addArmor("zora"));
+		tunicGoron = new ItemArmorTunic(1001,EnumArmorMaterial.CLOTH,  "tunic.goron", ALttC.proxy.addArmor("goron"));
 	}
 }

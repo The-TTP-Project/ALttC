@@ -15,9 +15,9 @@ public class ItemArmorTunic extends ItemArmor
 	public static EnumArmorMaterial materialBoots;
 	public static EnumArmorMaterial materialMask;
 
-	public ItemArmorTunic(int id, String name, int render)
+	public ItemArmorTunic(int id, EnumArmorMaterial mat, String name, int render)
 	{
-		super(id, materialBoots, render, 1);
+		super(id, mat, render, 1);
 		setCreativeTab(ALttC.creativeTab);
 		register(name);
 	}

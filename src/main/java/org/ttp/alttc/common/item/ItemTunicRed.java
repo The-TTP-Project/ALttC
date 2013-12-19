@@ -1,8 +1,12 @@
 package org.ttp.alttc.common.item;
 
-public class ItemTunicRed extends ItemArmorTTP
+import net.minecraft.item.EnumArmorMaterial;
+import net.minecraft.item.ItemArmor;
+
+public class ItemTunicRed extends ItemArmor
 {
-	public ItemTunicRed(int id, String name) {
-		super(id, name);
+	public ItemTunicRed(int par1, EnumArmorMaterial par2EnumArmorMaterial,
+			int par3) {
+		super(par1, par2EnumArmorMaterial, par3, 2);
 	}
 }
