@@ -4,7 +4,6 @@ import org.ttp.alttc.ALttC;
 import org.ttp.alttc.CommonProxy;
 import org.ttp.alttc.client.renderer.DeceptionRenderer;
 import org.ttp.alttc.client.renderer.RenderKeese;
-import org.ttp.alttc.common.blocks.BlockDeception;
 import org.ttp.alttc.common.core.handlers.ConfigHandler;
 import org.ttp.alttc.common.entity.EntityKeese;
 

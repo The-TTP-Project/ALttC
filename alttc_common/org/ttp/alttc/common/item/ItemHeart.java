@@ -1,4 +1,4 @@
-package org.ttp.alttc.common.item;
+	package org.ttp.alttc.common.item;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.item.ItemStack;
@@ -8,7 +8,7 @@ import org.ttp.alttc.common.entity.EntityHeart;
 
 public class ItemHeart extends ItemTTP {
 	public ItemHeart(int id, String name) {
-		super(id, name);
+		super(id, name, false);
 	}
 
 	@Override

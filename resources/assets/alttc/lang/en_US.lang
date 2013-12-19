@@ -3,3 +3,8 @@ itemGroup.ALttC=A Link To The Craft
 item.pickupHeart.name=Heart Flower
 item.masterSword.name=Master Sword
 
+
+item.lensOfTruth.name=Lens of Truth
+
+item.dekuStick.name=Deku Stick
+tile.deceptionBlock.name=Deception Block

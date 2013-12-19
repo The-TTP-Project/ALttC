@@ -22,7 +22,7 @@ public class ItemWeaponBase extends ItemTTP {
 	private final EnumToolMaterial toolMaterial;
     
     public ItemWeaponBase(int id, String name) {
-		super(id, name);
+		super(id, name, true);
 		toolMaterial = EnumToolMaterial.EMERALD;
 		weaponDamage = 8.0f;
 		this.setMaxDamage(0);
@@ -45,12 +45,6 @@ public class ItemWeaponBase extends ItemTTP {
             Material material = par2Block.blockMaterial;
             return material != Material.plants && material != Material.vine && material != Material.coral && material != Material.leaves && material != Material.pumpkin ? 1.0F : 1.5F;
         }
-    }
-
-    @SideOnly(Side.CLIENT)
-    public boolean isFull3D()
-    {
-        return true;
     }
 
     public EnumAction getItemUseAction(ItemStack par1ItemStack)
