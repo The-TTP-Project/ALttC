@@ -1,12 +1,7 @@
 package org.ttp.alttc.common.item;
 
-import com.google.common.collect.Multimap;
-
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.player.EntityPlayer;
@@ -16,7 +11,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 @SuppressWarnings("unused")
-public class ItemWeaponBase extends ItemTTP {
+public class ItemWeaponBase extends ItemTTP
+{
 	
 	private float weaponDamage;
 	private final EnumToolMaterial toolMaterial;
@@ -83,11 +79,11 @@ public class ItemWeaponBase extends ItemTTP {
         return this.toolMaterial.getToolCraftingMaterial() == par2ItemStack.itemID ? true : super.getIsRepairable(par1ItemStack, par2ItemStack);
     }
 
-    @SuppressWarnings({ "rawtypes", "unchecked" })
+    /*@SuppressWarnings({ "rawtypes", "unchecked" })
 	public Multimap getItemAttributeModifiers()
     {
         Multimap multimap = super.getItemAttributeModifiers();
         multimap.put(SharedMonsterAttributes.attackDamage.getAttributeUnlocalizedName(), new AttributeModifier(field_111210_e, "Weapon modifier", (double)this.weaponDamage, 0));
         return multimap;
-    }
+    }*/
 }

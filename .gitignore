@@ -1,4 +1,7 @@
-.classpath
-run
 bin
-PullRepo.bat
+build
+.gradle
+libs
+run
+.settings
+.classpath
