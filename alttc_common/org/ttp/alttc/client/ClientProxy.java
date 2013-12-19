@@ -31,4 +31,10 @@ public class ClientProxy extends CommonProxy {
 		RenderingRegistry.registerEntityRenderingHandler(EntityKeese.class, new RenderKeese());
 		RenderingRegistry.registerBlockHandler(ALttC.deceptionRenderer, new DeceptionRenderer());
 	}
+
+	public int addArmor(String armor)
+	{
+		return RenderingRegistry.addNewArmourRendererPrefix(armor);
+	}
+
 }
