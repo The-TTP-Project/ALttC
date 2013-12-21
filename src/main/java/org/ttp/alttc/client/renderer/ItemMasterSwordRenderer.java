@@ -23,7 +23,7 @@ public class ItemMasterSwordRenderer implements IItemRenderer {
 		return true;
 	}
 
-	@Override
+	@Override 
 	public boolean shouldUseRenderHelper(ItemRenderType type, ItemStack item, ItemRendererHelper helper) {
 		return true;
 	}

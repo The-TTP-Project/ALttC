@@ -62,7 +62,6 @@ public class DeceptionRenderer implements ISimpleBlockRenderingHandler {
 		TileDeception te = (TileDeception) world.getBlockTileEntity(x,y,z);
 		Block TEblock = te.block;
 
-		// Condensed if-else to avoid NPE in RenderBlocks
 		if (TEblock instanceof BlockDeception)
 			renderer.renderStandardBlock(TEblock, x, y, z);
 		else if (TEblock == null)
@@ -72,6 +71,7 @@ public class DeceptionRenderer implements ISimpleBlockRenderingHandler {
 			renderer.clearOverrideBlockTexture();
 		}
 		else			
+			// Condensed if-else to avoid NPE in RenderBlocks
 			renderer.renderBlockByRenderType(TEblock == null ? Block.stone
 					: TEblock, x, y, z);
 
