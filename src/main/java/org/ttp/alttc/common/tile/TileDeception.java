@@ -20,7 +20,6 @@ public class TileDeception extends TileEntity {
 	
 	public TileDeception() {
 		this.side = BlockDeception.side;
-		this.meta = BlockDeception.meta;
 	}
 	
 	@Deprecated
@@ -60,6 +59,7 @@ public class TileDeception extends TileEntity {
 				x--;
 				break;
 			}
+			meta = worldObj.getBlockMetadata(x, y, z);
 			counter--;
 			findIconsAndRender(x, y, z);
 			worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);

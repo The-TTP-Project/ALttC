@@ -15,7 +15,7 @@ import net.minecraftforge.common.ForgeDirection;
 
 public class BlockDeception extends BlockTTP{
 	
-	public static int side, meta;
+	public static int side;
 	private Icon icon;
 	
 	public BlockDeception(int id, Material material, String name) {
@@ -62,7 +62,6 @@ public class BlockDeception extends BlockTTP{
 	public int onBlockPlaced(World world, int x, int y, int z,
 			int placedSide, float par6, float par7, float par8, int par9) {
 		side = placedSide;
-		meta = world.getBlockMetadata(x, y, z);
 		return super.onBlockPlaced(world, x, y, z, side, par6, par7, par8,
 				par9);
 	}
